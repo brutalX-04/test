@@ -27,7 +27,7 @@ def get_cookies(username):
             'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36',
             'viewport-width': '980',
         }
-        session.get(f'https://www.instagram.com/{username}/', headers=headers, proxies={'https': 'http://gnscsrsa:hw7c8cugn89z@198.23.239.134:6540'})
+        session.get(f'https://www.instagram.com/{username}/', headers=headers)
         return session
 
     except Exception as e:
@@ -63,7 +63,7 @@ def get_profile(username, session):
         params = {
             'username': username,
         }
-        response = session.get('https://www.instagram.com/api/v1/users/web_profile_info/',params=params,headers=headers, proxies={'https': 'http://gnscsrsa:hw7c8cugn89z@198.23.239.134:6540'}).json()
+        response = session.get('https://www.instagram.com/api/v1/users/web_profile_info/',params=params,headers=headers).json()
 
         return response
 
